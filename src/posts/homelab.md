@@ -1,11 +1,11 @@
 ---
 title: "Automate your homelab setup with Ansible"
-date: "2025-03-23"
+date: "2023-03-23"
 description: "Simple Ansible playbook to automate your homelab setup"
 category: 'Tutorial'
 writing: false
 published: true
-tags: ["docker", "kubernetes"]
+tags: ["ansible", "homelab", "docker"]
 ---
 
 ## Introduction
