@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMonoVF.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gambarino';
+  src: url('/fonts/Gambarino-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Custom Table Of Content classes */
+
+.toc-level {
+  padding-bottom: 6px;
+}
+
+/* Shiki Light/Dark Theme */
+/* https://shiki.matsu.io/guide/dual-themes#class-based-dark-mode */
+
+html .shiki,
+html .shiki span {
+  position: relative;
+  background-color: transparent !important;
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  position: relative;
+  color: var(--shiki-dark) !important;
+  background-color: transparent !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* Shiki Copy Button */
+
+.code-container {
+  position: relative;
+}
+
+.shiki-copy-button-styles {
+  position: absolute;
+  top: 8px;
+  right: 7px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  z-index: 10;
+}
+
+.shiki-copy-icon-colors {
+  color: #525252;
+}
+
+.shiki-copy-button-styles:hover .shiki-copy-icon-colors {
+  color: #171717;
+}
+
+html.dark .shiki-copy-icon-colors {
+  color: #a3a3a3;
+}
+
+html.dark .shiki-copy-button-styles:hover .shiki-copy-icon-colors {
+  color: #ffff;
+}
+
+.icon-copied-container {
+  display: none;
+}
+
+.icon-copy-container {
+  display: inline;
+}
+
+.shiki-copy-button-styles.copied .icon-copy-container {
+  display: none;
+}
+
+.shiki-copy-button-styles.copied .icon-copied-container {
+  display: inline;
+}
