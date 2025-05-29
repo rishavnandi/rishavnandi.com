@@ -5,6 +5,10 @@
   // Light/Dark mode:
   import { ModeWatcher } from 'mode-watcher';
 
+  // vercel speed insights:
+  import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+  injectSpeedInsights();
+
   // Layout:
   import Header from '@/components/header.svelte';
   interface Props {
