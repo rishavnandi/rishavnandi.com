@@ -10,9 +10,7 @@ const config = {
   extensions: ['.svelte', '.md'],
   preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
   kit: {
-    adapter: adapter({
-      regions: ['auto']
-    }),
+    adapter: adapter(),
     alias: {
       '@': './src/*'
     },
