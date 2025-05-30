@@ -7,7 +7,11 @@
 
   // vercel speed insights:
   import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-  injectSpeedInsights();
+  
+  // Only inject speed insights in production
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+    injectSpeedInsights();
+  }
 
   // Layout:
   import Header from '@/components/header.svelte';
@@ -19,6 +23,8 @@
 
   // Current year:
   const currentYear = new Date().getFullYear();
+  
+  export const prerender = true;
 </script>
 
 <ModeWatcher />

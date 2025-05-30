@@ -80,7 +80,7 @@
       <div class="flex items-center space-x-[10px]">
         {#if url}
           {#if icon}
-            <img src={icon} alt={title} class="h-6 w-6" />
+            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" />
           {/if}
           <a
             href={url}
@@ -97,7 +97,7 @@
           </a>
         {:else}
           {#if icon}
-            <img src={icon} alt={title} class="h-6 w-6" />
+            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" />
           {/if}
           <p class="font-medium">{title}</p>
         {/if}

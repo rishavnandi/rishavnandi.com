@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Fonts */
+/* Critical CSS - Font Faces with optimized loading */
 
 @font-face {
   font-family: 'Geist';
@@ -16,6 +16,7 @@
   font-family: 'GeistMono';
   src: url('/fonts/GeistMonoVF.woff2') format('woff2');
   font-display: swap;
+  font-weight: 100 900;
 }
 
 @font-face {
@@ -23,6 +24,26 @@
   src: url('/fonts/Gambarino-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce layout shifts */
+img, 
+video, 
+iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Custom Table Of Content classes */
