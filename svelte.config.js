@@ -11,7 +11,6 @@ const config = {
   preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
   kit: {
     adapter: adapter({
-      runtime: 'nodejs18.x',
       regions: ['auto']
     }),
     alias: {
