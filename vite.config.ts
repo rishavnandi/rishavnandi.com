@@ -7,9 +7,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['svelte', '@sveltejs/kit'],
-          ui: ['bits-ui', 'lucide-svelte'],
-          markdown: ['mdsvex', 'shiki']
+          vendor: ['svelte'],
+          ui: ['bits-ui', 'lucide-svelte']
         }
       }
     }
