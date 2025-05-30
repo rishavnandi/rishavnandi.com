@@ -3,18 +3,12 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [sveltekit()],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['svelte'],
-          ui: ['bits-ui', 'lucide-svelte']
-        }
-      }
-    }
-  },
   optimizeDeps: {
-    include: ['@vercel/speed-insights/sveltekit', 'mode-watcher']
+    include: ['@vercel/speed-insights/sveltekit', 'mode-watcher', 'clsx', 'tailwind-merge']
+  },
+  build: {
+    minify: 'esbuild',
+    cssMinify: true
   },
   server: {
     fs: {
