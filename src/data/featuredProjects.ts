@@ -14,7 +14,7 @@ export const featuredProjects: iProjects[] = [
     description: '🔒 Ansible playbooks for Wireguard VPN with GUI',
     tags: ['Ansible', 'Wireguard', 'Docker', 'Git'],
     githubUrl: 'https://github.com/rishavnandi/ansible_selfhost_vpn',
-    icon: 'https://www.svgrepo.com/download/349569/wireguard.svg'
+    icon: 'https://img.icons8.com/dusk/512/proton-vpn.png'
   },
   {
     title: 'Jenkins Pipeline',
