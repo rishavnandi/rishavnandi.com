@@ -4,9 +4,12 @@
   import Experience from '@/components/experience.svelte';
   import Projects from '@/components/featuredProjects.svelte';
   import Posts from '@/components/posts.svelte';
+  import type { Post } from '@/types/post.type';
 
   interface Props {
-    data: any;
+    data: {
+      posts: Post[];
+    };
   }
 
   let { data }: Props = $props();

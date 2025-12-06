@@ -3,7 +3,7 @@
   import type { PageData } from './$types';
 
   import Input from '@/ui/input/input.svelte';
-  import { ArrowRight, ArrowUpRight, GitForkIcon, SearchIcon, StarIcon } from 'lucide-svelte';
+  import { ArrowUpRight, GitForkIcon, SearchIcon, StarIcon } from 'lucide-svelte';
   import { routeAnimation } from '@/ui/shared';
 
   interface Props {
@@ -48,7 +48,7 @@
       autofocus
       class="h-10 pl-10 shadow-sm"
       placeholder="Search Repositories"
-      on:input={handleSearch}
+      oninput={handleSearch}
     />
   </div>
   <div

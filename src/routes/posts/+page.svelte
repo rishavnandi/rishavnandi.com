@@ -5,7 +5,7 @@
   import Input from '@/ui/input/input.svelte';
   import { SearchIcon, CalendarIcon, TagIcon, ChevronRightIcon } from 'lucide-svelte';
   import { routeAnimation } from '@/ui/shared';
-  import { cn, formatDate } from '@/utils';
+  import { formatDate } from '@/utils';
 
   interface Props {
     data: PageData;
@@ -24,7 +24,7 @@
             post.title.toLowerCase().includes(term) ||
             post.description.toLowerCase().includes(term) ||
             // Search in tags if they exist
-            (post.tags && post.tags.some((tag) => tag.toLowerCase().includes(term)))
+            (post.tags && post.tags.some((tag: string) => tag.toLowerCase().includes(term)))
           );
         })
       : posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -57,7 +57,7 @@
       autofocus
       class="h-10 pl-10 shadow-sm"
       placeholder="Search Posts"
-      on:input={handleSearch}
+      oninput={handleSearch}
     />
   </div>
   <div

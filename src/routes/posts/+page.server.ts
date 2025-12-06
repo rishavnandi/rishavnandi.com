@@ -1,14 +1,11 @@
 import type { PageServerLoad } from './$types';
-import type { Post } from '@/types/post.type';
+import { getPosts } from '@/server';
 
-export const load: PageServerLoad = async ({ fetch }) => {
-    const response = await fetch('/api/posts');
-    const posts: Post[] = await response.json();
+export const load: PageServerLoad = async ({ setHeaders }) => {
+    setHeaders({
+        'Cache-Control': 'max-age=0, s-maxage=120'
+    });
 
-    return {
-        posts,
-        headers: {
-            'Cache-Control': 'max-age=0, s-maxage=120'
-        }
-    };
+    const posts = await getPosts();
+    return { posts };
 };

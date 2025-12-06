@@ -10,11 +10,9 @@
   import { technologies } from '@/data/technologies';
 
   let div: HTMLDivElement | undefined = $state();
-  let focused = false;
+  let focused = $state(false);
   let position = $state({ x: 0, y: 0 });
   let opacity = $state(0);
-  let i: number = 0;
-  let positions: { x: number; y: number }[] = [{ x: 0, y: 0 }];
 
   const handleMouseMove = (e: MouseEvent) => {
     if (!div || focused) return;
@@ -23,7 +21,6 @@
       x: e.clientX - rect.left,
       y: e.clientY - rect.top
     };
-    positions[i] = position;
   };
 
   const handleFocus = () => {

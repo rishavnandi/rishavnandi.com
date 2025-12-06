@@ -16,7 +16,7 @@ import Card from './og-card.svelte';
 const height = 630;
 const width = 1200;
 
-export const GET = async ({ params }: RequestHandler) => {
+export const GET: RequestHandler = async ({ params }) => {
   const fontSans = await read(geistFont).arrayBuffer();
   const post = await getSinglePost(params.slug as string);
 

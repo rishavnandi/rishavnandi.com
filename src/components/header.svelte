@@ -4,7 +4,7 @@
   import Github from '@/icons/github.svelte';
   import Linkedin from '@/icons/linkedin.svelte';
   import X from '@/icons/x.svelte';
-  import ModdeToggle from './modde-toggle.svelte';
+  import ModeToggle from './mode-toggle.svelte';
 
   const SocialLinks = [
     {
@@ -35,7 +35,7 @@
     <span>Rishav Nandi</span>
   </a>
   <div class="flex items-center space-x-1">
-    {#each SocialLinks as { name, url, icon, iconSize }, i}
+    {#each SocialLinks as { name, url, icon }}
       {@const SvelteComponent = icon}
       <a
         href={url}
@@ -48,9 +48,9 @@
           class: 'opacity-80 transition-opacity duration-150 hover:opacity-100'
         })}
       >
-        <SvelteComponent height={iconSize ? iconSize : 18} />
+        <SvelteComponent height={18} />
       </a>
     {/each}
-    <ModdeToggle />
+    <ModeToggle />
   </div>
 </nav>

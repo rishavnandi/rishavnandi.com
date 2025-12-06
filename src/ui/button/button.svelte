@@ -1,22 +1,22 @@
 <script lang="ts">
   import { Button as ButtonPrimitive } from 'bits-ui';
-  import { type Events, type Props, buttonVariants } from './index.js';
+  import { type Props, buttonVariants } from './index.js';
   import { cn } from '@/utils';
 
   type $$Props = Props;
-  type $$Events = Events;
 
   interface Props_1 {
-    class?: $$Props['class'];
+    class?: string;
     variant?: $$Props['variant'];
     size?: $$Props['size'];
     builders?: $$Props['builders'];
     children?: import('svelte').Snippet;
-    [key: string]: any
+    onclick?: (e: MouseEvent) => void;
+    [key: string]: unknown;
   }
 
   let {
-    class: className = undefined,
+    class: className = '',
     variant = 'default',
     size = 'default',
     builders = [],
@@ -29,10 +29,8 @@
 <ButtonPrimitive.Root
   {builders}
   type="button"
-  class={cn(buttonVariants({ variant, size, className }))}
+  class={cn(buttonVariants({ variant, size }), className)}
   {...rest}
-  on:click
-  on:keydown
 >
   {@render children?.()}
 </ButtonPrimitive.Root>

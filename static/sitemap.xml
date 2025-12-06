@@ -16,22 +16,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rishavnandi.com/post/clack-prompts</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://rishavnandi.com/post/homelab</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rishavnandi.com/post/monaco-custom-theme</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rishavnandi.com/post/remix</loc>
+    <loc>https://rishavnandi.com/post/minikube</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

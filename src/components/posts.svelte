@@ -3,7 +3,7 @@
   import Badge from '@/ui/badge/badge.svelte';
   import { cn, formatDate } from '@/utils';
 
-  import { CalendarIcon, TagIcon, ChevronRightIcon, ArrowUpRight, ArrowRight } from 'lucide-svelte';
+  import { CalendarIcon, TagIcon, ChevronRightIcon, ArrowRight } from 'lucide-svelte';
 
   interface Props {
     postData?: Post[];

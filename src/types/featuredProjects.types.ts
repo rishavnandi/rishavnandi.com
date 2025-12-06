@@ -9,7 +9,21 @@ export type Stack =
   | 'Terraform'
   | 'Windows'
   | 'WSL2'
-  | 'Powershell';
+  | 'Powershell'
+  | 'Turborepo'
+  | 'Hono'
+  | 'Upstash'
+  | 'Next.js'
+  | 'Tailwind CSS'
+  | 'Remix'
+  | 'Svelte'
+  | 'Tauri'
+  | 'T3 Stack'
+  | 'Astro'
+  | 'Trpc'
+  | 'React'
+  | 'Prisma'
+  | 'shadcn/ui';
 
 export interface iProjects {
   title: string;

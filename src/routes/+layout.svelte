@@ -23,8 +23,6 @@
 
   // Current year:
   const currentYear = new Date().getFullYear();
-  
-  export const prerender = true;
 </script>
 
 <ModeWatcher />

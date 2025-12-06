@@ -13,7 +13,7 @@
 </script>
 
 <Button
-  on:click={toggleMode}
+  onclick={toggleMode}
   title="Change theme"
   variant="ghost"
   size="icon"

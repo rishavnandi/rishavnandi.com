@@ -10,15 +10,20 @@ interface iGithubResultAPI {
   language: string;
 }
 
-export const load: PageServerLoad = async ({ fetch }) => {
+export const load: PageServerLoad = async ({ fetch, setHeaders }) => {
+  setHeaders({
+    'Cache-Control': 'max-age=0, s-maxage=120'
+  });
+
   const githubUrl = 'https://api.github.com/users/rishavnandi/repos?type=owner&sort=stars&per_page=100';
 
   const res = await fetch(githubUrl);
-  const data = await res.json();
 
   if (!res.ok) {
     throw error(res.status, '🚧 Could not fetch GitHub repos.');
   }
+
+  const data = await res.json();
 
   const projects: iGithubResultAPI[] = data.map((repo: iGithubResultAPI) => ({
     name: repo.name,
@@ -29,10 +34,5 @@ export const load: PageServerLoad = async ({ fetch }) => {
     stargazers_count: repo.stargazers_count
   }));
 
-  return {
-    repos: projects,
-    headers: {
-      'Cache-Control': 'max-age=0, s-maxage=120'
-    }
-  };
+  return { repos: projects };
 };

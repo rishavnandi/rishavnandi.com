@@ -7,4 +7,5 @@ export type Post = {
   category: string;
   published: boolean;
   writing: boolean;
+  tags?: string[];
 };
