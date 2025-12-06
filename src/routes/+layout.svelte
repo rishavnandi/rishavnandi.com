@@ -5,24 +5,31 @@
   // Light/Dark mode:
   import { ModeWatcher } from 'mode-watcher';
 
-  // vercel speed insights:
-  import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-  
-  // Only inject speed insights in production
-  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
-    injectSpeedInsights();
-  }
-
   // Layout:
   import Header from '@/components/header.svelte';
+  import { onMount } from 'svelte';
+
   interface Props {
     children?: import('svelte').Snippet;
   }
 
   let { children }: Props = $props();
 
-  // Current year:
+  // Current year (computed once at build time for prerendered pages)
   const currentYear = new Date().getFullYear();
+
+  // Lazy load speed insights after page is interactive
+  onMount(() => {
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+      // Use requestIdleCallback with fallback to setTimeout
+      const scheduleTask = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1));
+      scheduleTask(() => {
+        import('@vercel/speed-insights/sveltekit').then(({ injectSpeedInsights }) => {
+          injectSpeedInsights();
+        });
+      });
+    }
+  });
 </script>
 
 <ModeWatcher />

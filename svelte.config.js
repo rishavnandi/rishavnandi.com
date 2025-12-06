@@ -10,14 +10,25 @@ const config = {
   extensions: ['.svelte', '.md'],
   preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      // Use Node.js runtime for compatibility with @resvg/resvg-js
+      runtime: 'nodejs20.x',
+      // Split into regions for lower latency
+      regions: ['iad1'], // US East - adjust based on your audience
+      // Enable split to optimize function cold starts
+      split: true
+    }),
     alias: {
       '@': './src/*'
     },
     prerender: {
       handleMissingId: 'warn',
-      handleHttpError: 'warn'
-    }
+      handleHttpError: 'warn',
+      // Crawl all links for prerendering
+      crawl: true
+    },
+    // Inline styles for faster first paint
+    inlineStyleThreshold: 5000
   }
 };
 

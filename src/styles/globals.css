@@ -27,23 +27,47 @@
 }
 
 /* Performance optimizations */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Optimize for GPU acceleration on animations */
+@layer base {
+  html {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* Reduce layout shifts */
-img, 
-video, 
-iframe {
-  max-width: 100%;
-  height: auto;
+  /* Only apply smooth scroll when user hasn't reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Reduce layout shifts with explicit dimensions */
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+    /* Prevent layout shift */
+    content-visibility: auto;
+  }
+
+  /* Optimize paint performance */
+  a,
+  button {
+    touch-action: manipulation;
+  }
+
+  /* Contain paint for better performance */
+  main {
+    contain: layout style;
+  }
 }
 
 /* Custom Table Of Content classes */

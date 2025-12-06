@@ -19,7 +19,7 @@
   size="icon"
   class="group opacity-80 transition-opacity duration-150 hover:opacity-100"
 >
-  {#if $mode === 'dark'}
+  {#if mode.current === 'dark'}
     <Sun size={iconSize} {strokeWidth} class="duration-500 group-hover:rotate-12" />
   {:else}
     <Moon size={iconSize} {strokeWidth} class="duration-500 group-hover:-rotate-12" />

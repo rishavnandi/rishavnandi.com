@@ -57,7 +57,7 @@
   <input
     aria-hidden="true"
     class="pointer-events-none absolute left-0 top-0 z-10 h-full w-full cursor-default rounded-[0.310rem] border transition-opacity duration-500 placeholder:select-none
-    {$mode === 'dark' ? 'border-white/50' : 'border-black/50'}
+    {mode.current === 'dark' ? 'border-white/50' : 'border-black/50'}
     "
     style="
       opacity: {opacity};
@@ -77,7 +77,7 @@
       <div class="flex items-center space-x-[10px]">
         {#if url}
           {#if icon}
-            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" />
+            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" decoding="async" />
           {/if}
           <a
             href={url}
@@ -94,7 +94,7 @@
           </a>
         {:else}
           {#if icon}
-            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" />
+            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" decoding="async" />
           {/if}
           <p class="font-medium">{title}</p>
         {/if}

@@ -7,4 +7,4 @@
   let { src, alt }: Props = $props();
 </script>
 
-<img {src} {alt} loading="lazy" />
+<img {src} {alt} loading="lazy" decoding="async" />
