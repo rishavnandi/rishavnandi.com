@@ -2,9 +2,9 @@ import type { iExperience } from '@/types/experience.type';
 
 export const experienceData: iExperience[] = [
   {
-    role: 'Systems Engineer (TCS Prime)',
+    role: 'Gen AI Platform Engineer',
     aboutRole:
-      'Forward-deployed engineer on a Palantir-based enterprise healthcare platform, building LLM-powered data pipelines, Workshop applications, and operational dashboards. Migrated Kafka ingestion and derived-attribute generation workloads to Ray-based distributed services, improving processing performance by up to 30x. Fine-tuned small language models for local inference, built GitLab code-review bots, and developed a LangGraph, Vertex AI, and RAG assistant with an MCP server. Managed Docker and Kubernetes deployments while moving Python and frontend dependency management to uv and Bun, cutting CI/CD execution time by up to 50%.',
+      'Gen AI platform engineer building LLM data pipelines, SLM fine-tuning, agentic assistants, and distributed data services. On a Palantir-based healthcare engagement, improved Ray processing by up to 30x, built GitLab review bots and a LangGraph, Vertex AI, RAG, and MCP assistant, and managed Docker and Kubernetes deployments. Adopted uv and Bun to cut CI/CD execution time by up to 50%.',
     company: 'Tata Consultancy Services',
     companyUrl: 'https://tcs.com/',
     startDate: 'Jul 2025',
