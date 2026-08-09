@@ -9,6 +9,7 @@
   } from 'lucide-svelte';
 
   import Badge from '@/ui/badge/badge.svelte';
+  import { absoluteUrl, SITE_NAME } from '@/lib/seo';
   import { routeAnimation } from '@/ui/shared';
   import { buttonVariants } from '@/ui/button';
 
@@ -16,12 +17,21 @@
 </script>
 
 <svelte:head>
-  <title>{data.meta.title} - Rishav Nandi</title>
+  <title>{data.meta.title} | {SITE_NAME}</title>
+  <link rel="canonical" href={absoluteUrl(`/post/${data.slug}`)} />
+  <meta name="description" content={data.meta.description} />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content={`${data.meta.title} - Rishav Nandi`} />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:title" content={`${data.meta.title} | ${SITE_NAME}`} />
   <meta property="og:description" content={data.meta.description} />
-  <meta name="twitter:image" content={`https://rishavnandi.com/api/og/${data.slug}`} />
-  <meta name="og:image" content={`https://rishavnandi.com/api/og/${data.slug}`} />
+  <meta property="og:url" content={absoluteUrl(`/post/${data.slug}`)} />
+  <meta property="og:image" content={absoluteUrl(`/api/og/${data.slug}`)} />
+  <meta property="og:image:alt" content={data.meta.title} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${data.meta.title} | ${SITE_NAME}`} />
+  <meta name="twitter:description" content={data.meta.description} />
+  <meta name="twitter:image" content={absoluteUrl(`/api/og/${data.slug}`)} />
+  <meta name="twitter:image:alt" content={data.meta.title} />
 </svelte:head>
 
 <main class={cn('flex flex-col space-y-5', routeAnimation)}>

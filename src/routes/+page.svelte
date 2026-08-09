@@ -3,6 +3,7 @@
   import About from '@/components/about.svelte';
   import Experience from '@/components/experience.svelte';
   import Projects from '@/components/featuredProjects.svelte';
+  import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_IMAGE } from '@/lib/seo';
   import Posts from '@/components/posts.svelte';
   import type { Post } from '@/types/post.type';
 
@@ -16,15 +17,20 @@
 </script>
 
 <svelte:head>
-  <title>Rishav Nandi - AI Platform Engineer &amp; DevOps | rishavnandi.com</title>
-  <meta property="og:title" content="Rishav Nandi - AI Platform Engineer &amp; DevOps" />
-  <meta
-    property="og:description"
-    content="Portfolio of Rishav Nandi, an AI Platform Engineer and DevOps practitioner. Explore my projects, experience, and blog posts."
-  />
-  <meta name="image" property="og:image" content="https://rishavnandi.com/images/readme_img.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <title>{SITE_NAME} | Gen AI Platform Engineer &amp; DevOps</title>
+  <link rel="canonical" href={`${SITE_URL}/`} />
+  <meta name="description" content={DEFAULT_DESCRIPTION} />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:title" content={`${SITE_NAME} | Gen AI Platform Engineer & DevOps`} />
+  <meta property="og:description" content={DEFAULT_DESCRIPTION} />
+  <meta property="og:url" content={`${SITE_URL}/`} />
+  <meta property="og:image" content={SOCIAL_IMAGE} />
+  <meta property="og:image:alt" content="Rishav Nandi portfolio" />
+  <meta name="twitter:title" content={`${SITE_NAME} | Gen AI Platform Engineer & DevOps`} />
+  <meta name="twitter:description" content={DEFAULT_DESCRIPTION} />
+  <meta name="twitter:image" content={SOCIAL_IMAGE} />
+  <meta name="twitter:image:alt" content="Rishav Nandi portfolio" />
 </svelte:head>
 
 <div class="grid items-center gap-14 py-4 md:py-4">

@@ -4,6 +4,7 @@
 
   import Input from '@/ui/input/input.svelte';
   import { SearchIcon, CalendarIcon, TagIcon, ChevronRightIcon } from 'lucide-svelte';
+  import { absoluteUrl, SITE_NAME, SOCIAL_IMAGE } from '@/lib/seo';
   import { routeAnimation } from '@/ui/shared';
   import { formatDate } from '@/utils';
 
@@ -36,12 +37,29 @@
 </script>
 
 <svelte:head>
-  <title>Posts - Rishav Nandi</title>
-  <meta property="og:title" content="Rishav Nandi" />
-  <meta property="og:description" content="Cosplaying as a sysadmin" />
-  <meta name="image" property="og:image" content="https://rishavnandi.com/images/readme_img.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <title>Posts | {SITE_NAME}</title>
+  <link rel="canonical" href={absoluteUrl('/posts')} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta
+    name="description"
+    content="Technical writing by Rishav Nandi about AI platforms, DevOps, automation, and self-hosted systems."
+  />
+  <meta property="og:title" content={`Posts | ${SITE_NAME}`} />
+  <meta
+    property="og:description"
+    content="Technical writing by Rishav Nandi about AI platforms, DevOps, automation, and self-hosted systems."
+  />
+  <meta property="og:url" content={absoluteUrl('/posts')} />
+  <meta property="og:image" content={SOCIAL_IMAGE} />
+  <meta property="og:image:alt" content="Rishav Nandi technical writing" />
+  <meta name="twitter:title" content={`Posts | ${SITE_NAME}`} />
+  <meta
+    name="twitter:description"
+    content="Technical writing by Rishav Nandi about AI platforms, DevOps, automation, and self-hosted systems."
+  />
+  <meta name="twitter:image" content={SOCIAL_IMAGE} />
+  <meta name="twitter:image:alt" content="Rishav Nandi technical writing" />
 </svelte:head>
 
 <main class={routeAnimation}>

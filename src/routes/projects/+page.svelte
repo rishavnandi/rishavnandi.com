@@ -4,6 +4,7 @@
 
   import Input from '@/ui/input/input.svelte';
   import { ArrowUpRight, GitForkIcon, SearchIcon, StarIcon } from 'lucide-svelte';
+  import { absoluteUrl, SITE_NAME, SOCIAL_IMAGE } from '@/lib/seo';
   import { routeAnimation } from '@/ui/shared';
 
   interface Props {
@@ -35,12 +36,29 @@
 </script>
 
 <svelte:head>
-  <title>Projects - Rishav Nandi</title>
-  <meta property="og:title" content="Rishav Nandi" />
-  <meta property="og:description" content="Cosplaying as a sysadmin" />
-  <meta name="image" property="og:image" content="https://rishavnandi.com/images/readme_img.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <title>Projects | {SITE_NAME}</title>
+  <link rel="canonical" href={absoluteUrl('/projects')} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta
+    name="description"
+    content="Open-source AI, platform engineering, DevOps, and self-hosting projects by Rishav Nandi."
+  />
+  <meta property="og:title" content={`Projects | ${SITE_NAME}`} />
+  <meta
+    property="og:description"
+    content="Open-source AI, platform engineering, DevOps, and self-hosting projects by Rishav Nandi."
+  />
+  <meta property="og:url" content={absoluteUrl('/projects')} />
+  <meta property="og:image" content={SOCIAL_IMAGE} />
+  <meta property="og:image:alt" content="Rishav Nandi projects" />
+  <meta name="twitter:title" content={`Projects | ${SITE_NAME}`} />
+  <meta
+    name="twitter:description"
+    content="Open-source AI, platform engineering, DevOps, and self-hosting projects by Rishav Nandi."
+  />
+  <meta name="twitter:image" content={SOCIAL_IMAGE} />
+  <meta name="twitter:image:alt" content="Rishav Nandi projects" />
 </svelte:head>
 
 <main class={routeAnimation}>
