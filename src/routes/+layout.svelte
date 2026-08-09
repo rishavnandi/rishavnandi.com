@@ -42,7 +42,7 @@
   <footer
     class="container mt-10 flex max-w-4xl flex-col items-center justify-center space-y-1 md:flex-row md:justify-between md:space-y-0"
   >
-    <p class="font-gambarino">✨ Cosplaying as a sysadmin</p>
+    <p class="font-gambarino">Cosplaying as a sysadmin</p>
     <div class="md:text-md flex items-center space-x-1 text-sm">
       <h2>Rishav Nandi</h2>
       <span class="text-gray-500 dark:text-gray-400">-</span>

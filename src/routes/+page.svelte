@@ -16,11 +16,11 @@
 </script>
 
 <svelte:head>
-  <title>Rishav Nandi - DevOps Engineer | rishavnandi.com</title>
-  <meta property="og:title" content="Rishav Nandi - DevOps Engineer" />
+  <title>Rishav Nandi - AI Platform Engineer &amp; DevOps | rishavnandi.com</title>
+  <meta property="og:title" content="Rishav Nandi - AI Platform Engineer &amp; DevOps" />
   <meta
     property="og:description"
-    content="Portfolio of Rishav Nandi, a DevOps Engineer. Explore my projects, experience, and blog posts."
+    content="Portfolio of Rishav Nandi, an AI Platform Engineer and DevOps practitioner. Explore my projects, experience, and blog posts."
   />
   <meta name="image" property="og:image" content="https://rishavnandi.com/images/readme_img.png" />
   <meta property="og:image:width" content="1200" />

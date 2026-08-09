@@ -1,5 +1,7 @@
 import { escapeSvelte } from 'mdsvex';
 import { h } from 'hastscript';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Rehype Plugins:
 import rehypeSlug from 'rehype-slug';
@@ -140,11 +142,13 @@ function addCopyButton(options = {}) {
   };
 }
 
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('mdsvex').MdsvexOptions} */
 export const mdsvexOptions = {
   extensions: ['.md'],
   layout: {
-    _: './src/components/mdsvex/md-components.svelte'
+    _: path.join(projectRoot, 'src/components/mdsvex/md-components.svelte')
   },
   rehypePlugins: [
     [urls, processUrl],
@@ -204,7 +208,7 @@ export const mdsvexOptions = {
           'hcl',
           'makefile',
           'plain'
-      ]
+        ]
       });
       const html = escapeSvelte(
         highlighter.codeToHtml(code, {

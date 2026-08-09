@@ -12,13 +12,21 @@
 
   let { data }: Props = $props();
 
-  const repos = data.repos;
+  let repos = $derived(data.repos);
   let searchTerm = $state('');
 
   let filteredRepos = $derived(
-    searchTerm
-      ? repos.filter((repo) => repo.name.toLowerCase().includes(searchTerm.toLowerCase()))
-      : repos.sort((a, b) => b.stargazers_count - a.stargazers_count)
+    repos
+      .filter((repo) => {
+        if (!searchTerm) return true;
+
+        const searchableText = [repo.name, repo.description, ...repo.topics]
+          .join(' ')
+          .toLowerCase();
+        return searchableText.includes(searchTerm.toLowerCase());
+      })
+      .slice()
+      .sort((a, b) => b.stargazers_count - a.stargazers_count)
   );
 
   const handleSearch = (e: Event) => {

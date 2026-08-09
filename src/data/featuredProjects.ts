@@ -2,32 +2,38 @@ import type { iProjects } from '@/types/featuredProjects.types';
 
 export const featuredProjects: iProjects[] = [
   {
+    title: 'Kusama',
+    description:
+      'Agent-native data and machine-learning studio for datasets, training, and model serving',
+    tags: ['Docker', 'Next.js', 'Git'],
+    latest: true,
+    url: 'https://app.kusama.autos',
+    githubUrl: 'https://github.com/rishavnandi/kusama',
+    icon: '/images/kusama-logo.svg'
+  },
+  {
+    title: 'TSDeck',
+    description:
+      'Self-hosted app catalog that generates one-line Docker and Tailscale setup commands',
+    tags: ['Hono', 'Docker', 'Git'],
+    latest: true,
+    url: 'https://tsdeck.rishavnandi.workers.dev',
+    githubUrl: 'https://github.com/rishavnandi/tsdeck',
+    icon: '/images/tailscale-logo.svg'
+  },
+  {
     title: 'Ansible Homelab',
-    description: '🏠 Ansible playbooks for Docker homelab services',
+    description: 'Ansible playbooks for deploying Docker homelab services',
     tags: ['Ansible', 'Docker', 'Git', 'Linux'],
     updated: true,
     githubUrl: 'https://github.com/rishavnandi/ansible_homelab',
     icon: 'https://img.icons8.com/plasticine/512/stack.png'
   },
   {
-    title: 'Ansible Self-Hosted VPN',
-    description: '🔒 Ansible playbooks for Wireguard VPN with GUI',
-    tags: ['Ansible', 'Wireguard', 'Docker', 'Git'],
-    githubUrl: 'https://github.com/rishavnandi/ansible_selfhost_vpn',
-    icon: 'https://img.icons8.com/dusk/512/proton-vpn.png'
-  },
-  {
-    title: 'Jenkins Pipeline',
-    description: '🚀 Jenkins pipeline deploying flask app to AWS',
-    tags: ['Jenkins', 'AWS', 'Linux', 'Terraform'],
-    githubUrl: 'https://github.com/rishavnandi/jenkins_pipeline',
-    icon: 'https://img.icons8.com/color/512/jenkins.png'
-  },
-  {
-    title: 'WSL2 Automation Scripts',
-    description: '⚙️ WSL2 setup automation for Windows 10/11',
-    tags: ['WSL2', 'Git', 'Linux', 'Powershell'],
-    githubUrl: 'https://github.com/rishavnandi/wsl_dotfiles',
-    icon: 'https://img.icons8.com/fluency/512/fedora.png'
+    title: 'Docker Compose Boilerplates',
+    description: 'Reusable Docker Compose templates for self-hosted services',
+    tags: ['Docker', 'Git', 'Linux'],
+    githubUrl: 'https://github.com/rishavnandi/boiler_plates',
+    icon: 'https://img.icons8.com/color/512/docker.png'
   }
 ];

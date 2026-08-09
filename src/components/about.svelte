@@ -9,8 +9,9 @@
     )}
   >
     <p class="leading-loose">
-      {`I'm`} <span class="font-bold tracking-tight">Rishav</span>, a DevOps engineer from India.
-      I'm passionate about automation, sys-admin stuff, and building open-source software.
+      {`I'm`} <span class="font-bold tracking-tight">Rishav</span>, an AI Platform Engineer &amp;
+      DevOps practitioner from India. I'm passionate about automation, sys-admin stuff, and building
+      open-source software.
     </p>
   </article>
 </section>

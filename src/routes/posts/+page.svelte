@@ -13,7 +13,7 @@
 
   let { data }: Props = $props();
 
-  const posts = data.posts;
+  let posts = $derived(data.posts);
   let searchTerm = $state('');
 
   let filteredPosts = $derived(
@@ -27,7 +27,7 @@
             (post.tags && post.tags.some((tag: string) => tag.toLowerCase().includes(term)))
           );
         })
-      : posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      : posts.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   );
 
   const handleSearch = (e: Event) => {

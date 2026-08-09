@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Kusama</title>
+  <rect width="64" height="64" fill="#000"/>
+  <path fill="#f2a93b" d="M8 8h14v14H8zm34 0h14v14H42zM25 25h14v14H25zM8 42h14v14H8zm34 0h14v14H42z"/>
+</svg>

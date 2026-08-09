@@ -117,7 +117,7 @@
       </div>
     </div>
     <p class="truncate text-sm dark:text-neutral-400">{description}</p>
-    <div class="flex items-center space-x-1 overflow-y-auto">
+    <div class="flex flex-wrap items-center gap-1">
       {#each tags as tag}
         {#each technologies.filter((s) => s.stack === tag) as { icon: Icon }}
           <Badge>
