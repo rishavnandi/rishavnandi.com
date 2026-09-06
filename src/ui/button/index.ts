@@ -4,7 +4,7 @@ import { type VariantProps, tv } from 'tailwind-variants';
 import Root from './button.svelte';
 
 const buttonVariants = tv({
-  base: 'inline-flex items-center space-x-3 justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-700 focus-visible:ring-neutral-500',
+  base: 'inline-flex items-center gap-3 justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-700 focus-visible:ring-neutral-500',
   variants: {
     variant: {
       default:
@@ -16,7 +16,7 @@ const buttonVariants = tv({
       secondary:
         'bg-neutral-200 text-neutral-900 shadow-sm hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-950/80',
       ghost:
-        'hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-950 dark:hover:text-neutral-50',
+        '[@media(hover:hover)]:hover:bg-neutral-200 [@media(hover:hover)]:hover:text-neutral-900 dark:[@media(hover:hover)]:hover:bg-neutral-950 dark:[@media(hover:hover)]:hover:text-neutral-50',
       link: 'text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50',
       expandIcon:
         'group relative border border-neutral-200 bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-black dark:hover:bg-neutral-950 dark:hover:text-neutral-50 dark:hover:border-neutral-700/50'

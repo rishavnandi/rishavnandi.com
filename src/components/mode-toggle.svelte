@@ -16,13 +16,13 @@
   title="Change theme"
   variant="ghost"
   size="icon"
-  class="group opacity-80 transition-opacity duration-150 hover:opacity-100"
+  class="group opacity-80 transition-opacity duration-150 [@media(hover:hover)]:hover:opacity-100"
 >
-  <Sun size={iconSize} {strokeWidth} class="hidden duration-500 group-hover:rotate-12 dark:block" />
+  <Sun size={iconSize} {strokeWidth} class="hidden dark:block" />
   <Moon
     size={iconSize}
     {strokeWidth}
-    class="block duration-500 group-hover:-rotate-12 dark:hidden"
+    class="block dark:hidden"
   />
   <span class="sr-only">Toggle theme</span>
 </Button>
