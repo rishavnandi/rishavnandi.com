@@ -6,24 +6,27 @@
 
 @font-face {
   font-family: 'Geist';
-  src: url('/fonts/Geist.woff2') format('woff2');
+  src: url('../lib/assets/fonts/Geist-latin.woff2') format('woff2');
   font-weight: 100 900;
-  font-display: swap;
+  font-display: optional;
+  unicode-range: U+0000-024F, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+FFFD;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GeistMono';
-  src: url('/fonts/GeistMonoVF.woff2') format('woff2');
-  font-display: swap;
+  src: url('../lib/assets/fonts/GeistMono-latin.woff2') format('woff2');
+  font-display: optional;
+  unicode-range: U+0000-024F, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+FFFD;
   font-weight: 100 900;
 }
 
 @font-face {
   font-family: 'Gambarino';
-  src: url('/fonts/Gambarino-Regular.woff2') format('woff2');
+  src: url('../lib/assets/fonts/Gambarino-latin.woff2') format('woff2');
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
+  unicode-range: U+0000-024F, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+FFFD;
 }
 
 /* Performance optimizations */

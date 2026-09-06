@@ -7,22 +7,11 @@
     <!-- Optimize for speed -->
     <meta http-equiv="x-dns-prefetch-control" content="on" />
 
-    <!-- Critical Resource Preloading - fonts with highest priority -->
-    <link
-      rel="preload"
-      href="%sveltekit.assets%/fonts/Geist.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-      fetchpriority="high"
-    />
 
     <!-- DNS Prefetch & Preconnect for External Resources -->
-    <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin />
     <link rel="dns-prefetch" href="//github.com" />
     <link rel="dns-prefetch" href="//linkedin.com" />
     <link rel="dns-prefetch" href="//twitter.com" />
-    <link rel="dns-prefetch" href="//img.icons8.com" />
 
     <link rel="icon" type="image/png" href="%sveltekit.assets%/images/logo_png.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -93,7 +82,7 @@
   <body
     data-sveltekit-preload-data="tap"
     data-sveltekit-preload-code="hover"
-    class="min-h-screen scroll-smooth bg-neutral-100 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700"
+    class="min-h-screen scroll-smooth bg-neutral-100 font-sans antialiased selection:bg-neutral-200 dark:bg-black dark:text-neutral-100 dark:selection:bg-neutral-800"
   >
     <div style="display: contents">%sveltekit.body%</div>
   </body>

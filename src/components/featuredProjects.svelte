@@ -10,7 +10,7 @@
     <h2 class="text-xl font-medium">Projects</h2>
     <a
       href="/projects"
-      class="group flex items-center space-x-2 text-sm font-medium text-neutral-500 duration-100 hover:text-black dark:text-neutral-400 dark:hover:text-white"
+      class="group flex items-center space-x-2 text-sm font-medium text-neutral-600 duration-100 hover:text-black dark:text-neutral-400 dark:hover:text-white"
     >
       <span>All projects</span>
       <ArrowRight

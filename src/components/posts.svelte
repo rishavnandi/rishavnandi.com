@@ -24,9 +24,9 @@
     {#if showViewAll}
       <a
         href="/posts"
-        class="group flex items-center space-x-2 text-sm font-medium text-neutral-500 duration-100 hover:text-black dark:text-neutral-400 dark:hover:text-white"
+        class="group flex items-center space-x-2 text-sm font-medium text-neutral-600 duration-100 hover:text-black dark:text-neutral-400 dark:hover:text-white"
       >
-        <span>View all</span>
+        <span>All posts</span>
         <ArrowRight
           size={14}
           strokeWidth={2}
@@ -66,13 +66,6 @@
             </time>
           </Badge>
         </div>
-        <a
-          href={`/post/${post.slug}`}
-          class="group hidden items-center space-x-[4px] text-sm tracking-tight opacity-70 transition-opacity duration-100 hover:opacity-100 md:flex"
-        >
-          <span>Read more</span>
-          <ChevronRightIcon size={16} class="duration-150 group-hover:translate-x-[2px]" />
-        </a>
       </div>
     </div>
   {/each}

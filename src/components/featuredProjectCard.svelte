@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { iProjects } from '@/types/featuredProjects.types';
 
-  import { mode } from 'mode-watcher';
   import { ArrowUpRight } from 'lucide-svelte';
 
   import Github from '@/icons/github.svelte';
@@ -9,76 +8,22 @@
   import SpotlightBadge from '@/ui/badge/spotlight-badge.svelte';
   import { technologies } from '@/data/technologies';
 
-  let div: HTMLDivElement | undefined = $state();
-  let focused = $state(false);
-  let position = $state({ x: 0, y: 0 });
-  let opacity = $state(0);
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!div || focused) return;
-    const rect = div.getBoundingClientRect();
-    position = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    };
-  };
-
-  const handleFocus = () => {
-    focused = true;
-    opacity = 1;
-  };
-
-  const handleBlur = () => {
-    focused = false;
-    opacity = 0;
-  };
-
-  const handleMouseEnter = () => {
-    opacity = 1;
-  };
-
-  const handleMouseLeave = () => {
-    opacity = 0;
-  };
-
   let { title, description, icon, url, githubUrl, tags, latest, updated }: iProjects = $props();
+  const ProjectIcon = $derived(technologies[tags[0]]);
 </script>
 
 <div
-  role="contentinfo"
-  bind:this={div}
-  onmousemove={handleMouseMove}
-  onfocus={handleFocus}
-  onblur={handleBlur}
-  onmouseenter={handleMouseEnter}
-  onmouseleave={handleMouseLeave}
-  class="relative flex flex-col rounded-md border-[1px] border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
+  class="relative flex flex-col rounded-md border border-neutral-300 px-3 py-4 shadow-sm transition-colors focus-within:border-neutral-400 hover:border-neutral-400 motion-reduce:transition-none dark:border-neutral-800 dark:focus-within:border-neutral-600 dark:hover:border-neutral-600"
 >
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute left-0 top-0 z-10 h-full w-full cursor-default rounded-[0.310rem] border transition-opacity duration-500 placeholder:select-none
-    {mode.current === 'dark' ? 'border-white/50' : 'border-black/50'}
-    "
-    style="
-      opacity: {opacity};
-      -webkit-mask-image: radial-gradient(30% 30px at {position.x}px {position.y}px, black 45%, transparent);
-      background-color: transparent;
-    "
-  ></div>
-  <div
-    class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition duration-300"
-    style="
-      opacity: {opacity};
-      background: radial-gradient(600px circle at {position.x}px {position.y}px, rgba(97, 97, 97, 0.1), transparent 60%);
-    "
-  ></div>
   <div class="flex flex-col space-y-3">
     <div class="flex w-full items-center justify-between">
       <div class="flex items-center space-x-[10px]">
+        {#if icon}
+          <img src={icon} alt="" width="24" height="24" class="h-6 w-6 shrink-0" decoding="async" />
+        {:else if ProjectIcon}
+          <ProjectIcon width={24} height={24} aria-hidden="true" />
+        {/if}
         {#if url}
-          {#if icon}
-            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" decoding="async" />
-          {/if}
           <a
             href={url}
             target="_blank"
@@ -93,9 +38,6 @@
             />
           </a>
         {:else}
-          {#if icon}
-            <img src={icon} alt={title} class="h-6 w-6" loading="lazy" decoding="async" />
-          {/if}
           <p class="font-medium">{title}</p>
         {/if}
       </div>

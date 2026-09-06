@@ -26,8 +26,8 @@ const config = {
       // Crawl all links for prerendering
       crawl: true
     },
-    // Inline styles for faster first paint
-    inlineStyleThreshold: 5000
+    // Inline the small compressed stylesheet to avoid a render-blocking round trip.
+    inlineStyleThreshold: 65536
   }
 };
 

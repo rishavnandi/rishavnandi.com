@@ -26,14 +26,12 @@ export const featuredProjects: iProjects[] = [
     description: 'Ansible playbooks for deploying Docker homelab services',
     tags: ['Ansible', 'Docker', 'Git', 'Linux'],
     updated: true,
-    githubUrl: 'https://github.com/rishavnandi/ansible_homelab',
-    icon: 'https://img.icons8.com/plasticine/512/stack.png'
+    githubUrl: 'https://github.com/rishavnandi/ansible_homelab'
   },
   {
     title: 'Docker Compose Boilerplates',
     description: 'Reusable Docker Compose templates for self-hosted services',
     tags: ['Docker', 'Git', 'Linux'],
-    githubUrl: 'https://github.com/rishavnandi/boiler_plates',
-    icon: 'https://img.icons8.com/color/512/docker.png'
+    githubUrl: 'https://github.com/rishavnandi/boiler_plates'
   }
 ];

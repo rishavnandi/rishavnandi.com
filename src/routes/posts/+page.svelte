@@ -3,7 +3,7 @@
   import type { PageData } from './$types';
 
   import Input from '@/ui/input/input.svelte';
-  import { SearchIcon, CalendarIcon, TagIcon, ChevronRightIcon } from 'lucide-svelte';
+  import { SearchIcon, CalendarIcon, TagIcon } from 'lucide-svelte';
   import { absoluteUrl, SITE_NAME, SOCIAL_IMAGE } from '@/lib/seo';
   import { formatDate } from '@/utils';
 
@@ -114,13 +114,6 @@
               </div>
             {/if}
           </div>
-          <a
-            href={`/post/${post.slug}`}
-            class="group flex items-center space-x-[4px] text-sm tracking-tight opacity-70 transition-opacity duration-100 hover:opacity-100"
-          >
-            <span>Read more</span>
-            <ChevronRightIcon size={16} class="duration-150 group-hover:translate-x-[2px]" />
-          </a>
         </div>
       </div>
     {:else}

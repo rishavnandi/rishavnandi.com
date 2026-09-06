@@ -1,6 +1,7 @@
 <script lang="ts">
   // Styles:
   import '@/styles/globals.css';
+  import geistFont from '@/lib/assets/fonts/Geist-latin.woff2?url';
 
   // Light/Dark mode:
   import { ModeWatcher } from 'mode-watcher';
@@ -31,6 +32,10 @@
     }
   });
 </script>
+
+<svelte:head>
+  <link rel="preload" href={geistFont} as="font" type="font/woff2" crossorigin="anonymous" />
+</svelte:head>
 
 <ModeWatcher />
 
