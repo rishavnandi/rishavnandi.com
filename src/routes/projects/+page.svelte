@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Pagination from '@/components/pagination.svelte';
+  import { paginate } from '@/lib/pagination';
   import Badge from '@/ui/badge/badge.svelte';
   import type { PageData } from './$types';
 
@@ -14,6 +16,7 @@
 
   let repos = $derived(data.repos);
   let searchTerm = $state('');
+  let requestedPage = $state(1);
   let normalizedSearch = $derived(searchTerm.trim().toLowerCase());
   let searchIndex = $derived(
     repos.map((repo) => [repo.name, repo.description, ...repo.topics].join(' ').toLowerCase())
@@ -22,6 +25,7 @@
   let filteredRepos = $derived(
     repos.filter((_, index) => searchIndex[index].includes(normalizedSearch))
   );
+  const results = $derived(paginate(filteredRepos, requestedPage));
 </script>
 
 <svelte:head>
@@ -64,6 +68,7 @@
       class="h-10 pl-10 shadow-sm"
       placeholder="Search Repositories"
       bind:value={searchTerm}
+      oninput={() => (requestedPage = 1)}
     />
   </div>
   <div
@@ -91,7 +96,7 @@
     </a>
   </div>
   <div class="flex flex-col space-y-3">
-    {#each filteredRepos as item (item.html_url)}
+    {#each results.items as item (item.html_url)}
       <div
         class="flex flex-col space-y-2 rounded-md border border-neutral-300 p-3 dark:border-neutral-800"
       >
@@ -135,4 +140,9 @@
       </p>
     {/each}
   </div>
+  <Pagination
+    page={results.page}
+    totalPages={results.totalPages}
+    onchange={(page) => (requestedPage = page)}
+  />
 </main>

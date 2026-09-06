@@ -69,3 +69,13 @@ test('post dates accept ISO timestamps and stay consistent across time zones', (
   expect(formatDate('2023-01-03')).toBe('Jan 3, 2023');
   expect(formatDate('2023-01-03T00:00:00Z')).toBe('Jan 3, 2023');
 });
+
+test('pagination covers every result, clamps stale pages and handles empty searches', async () => {
+  const { paginate } = await import('../src/lib/pagination');
+  const items = Array.from({ length: 24 }, (_, i) => i);
+  expect([1, 2, 3].flatMap((page) => paginate(items, page).items)).toEqual(items);
+  expect(paginate(items, 3).items).toHaveLength(4);
+  expect(paginate(items, 99).page).toBe(3);
+  expect(paginate(items.slice(0, 2), 3)).toEqual({ page: 1, totalPages: 1, items: [0, 1] });
+  expect(paginate([], 3)).toEqual({ page: 1, totalPages: 1, items: [] });
+});

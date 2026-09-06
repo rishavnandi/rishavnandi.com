@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Pagination from '@/components/pagination.svelte';
+  import { paginate } from '@/lib/pagination';
   import Badge from '@/ui/badge/badge.svelte';
   import type { PageData } from './$types';
 
@@ -15,6 +17,7 @@
 
   let posts = $derived(data.posts);
   let searchTerm = $state('');
+  let requestedPage = $state(1);
   let term = $derived(searchTerm.trim().toLowerCase());
 
   let filteredPosts = $derived(
@@ -29,6 +32,7 @@
         })
       : posts
   );
+  const results = $derived(paginate(filteredPosts, requestedPage));
 </script>
 
 <svelte:head>
@@ -71,6 +75,7 @@
       class="h-10 pl-10 shadow-sm"
       placeholder="Search Posts"
       bind:value={searchTerm}
+      oninput={() => (requestedPage = 1)}
     />
   </div>
   <div
@@ -84,7 +89,7 @@
     </div>
   </div>
   <div class="flex flex-col space-y-3">
-    {#each filteredPosts as post (post.slug)}
+    {#each results.items as post (post.slug)}
       <div
         class="flex flex-col space-y-2 rounded-md border border-neutral-300 p-3 dark:border-neutral-800"
       >
@@ -122,4 +127,9 @@
       </p>
     {/each}
   </div>
+  <Pagination
+    page={results.page}
+    totalPages={results.totalPages}
+    onchange={(page) => (requestedPage = page)}
+  />
 </main>

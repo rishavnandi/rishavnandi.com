@@ -74,3 +74,5 @@ Open up [http://localhost:5173](http://localhost:5173) and make your changes ✨
 
 Run `bun test`, `bun run check`, `bun run lint`, and `bun run build` before deploying.
 The projects page fetches all public GitHub repositories at request time, with a five-minute CDN cache and one minute of background revalidation. New repositories appear on a subsequent visit or refresh without rebuilding the website. GitHub rate limits or outages return a retryable error.
+
+The homepage is static HTML with a small native theme script and system fonts; it shows at most the three latest posts. Projects and posts render ten results per page, with search across the complete metadata list. Theme preferences retain the existing storage key and continue to work when local storage is unavailable.

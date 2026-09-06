@@ -1,10 +1,10 @@
 <script lang="ts">
   // Styles:
   import '@/styles/globals.css';
-  import geistFont from '@/lib/assets/fonts/Geist-latin.woff2?url';
 
   // Light/Dark mode:
-  import { ModeWatcher } from 'mode-watcher';
+  import themeScript from '@/lib/theme.js?raw';
+  const themeHtml = '<script>' + themeScript + '</' + 'script>';
 
   // Layout:
   import Header from '@/components/header.svelte';
@@ -34,10 +34,9 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" href={geistFont} as="font" type="font/woff2" crossorigin="anonymous" />
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -- Only embeds the local, build-time theme script. -->
+  {@html themeHtml}
 </svelte:head>
-
-<ModeWatcher />
 
 <div class="relative flex min-h-screen flex-col py-4 md:py-6">
   <Header />
@@ -47,7 +46,7 @@
   <footer
     class="container mt-10 flex max-w-4xl flex-col items-center justify-center space-y-1 md:flex-row md:justify-between md:space-y-0"
   >
-    <p class="font-gambarino">Cosplaying as a sysadmin</p>
+    <p class="font-serif">Cosplaying as a sysadmin</p>
     <div class="md:text-md flex items-center space-x-1 text-sm">
       <h2>Rishav Nandi</h2>
       <span class="text-gray-500 dark:text-gray-400">-</span>

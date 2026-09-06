@@ -2,7 +2,6 @@
   import Button from '@/ui/button/button.svelte';
 
   import { Sun, Moon } from 'lucide-svelte';
-  import { mode, toggleMode } from 'mode-watcher';
 
   interface Props {
     iconSize?: number;
@@ -13,16 +12,17 @@
 </script>
 
 <Button
-  onclick={toggleMode}
+  data-theme-toggle
   title="Change theme"
   variant="ghost"
   size="icon"
   class="group opacity-80 transition-opacity duration-150 hover:opacity-100"
 >
-  {#if mode.current === 'dark'}
-    <Sun size={iconSize} {strokeWidth} class="duration-500 group-hover:rotate-12" />
-  {:else}
-    <Moon size={iconSize} {strokeWidth} class="duration-500 group-hover:-rotate-12" />
-  {/if}
+  <Sun size={iconSize} {strokeWidth} class="hidden duration-500 group-hover:rotate-12 dark:block" />
+  <Moon
+    size={iconSize}
+    {strokeWidth}
+    class="block duration-500 group-hover:-rotate-12 dark:hidden"
+  />
   <span class="sr-only">Toggle theme</span>
 </Button>

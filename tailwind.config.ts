@@ -20,9 +20,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ['Geist', ...defaultTheme.fontFamily.sans],
-        mono: ['GeistMono', ...defaultTheme.fontFamily.mono],
-        gambarino: ['Gambarino', ...defaultTheme.fontFamily.sans]
+        sans: defaultTheme.fontFamily.sans,
+        mono: defaultTheme.fontFamily.mono
       },
       typography: {
         DEFAULT: {
