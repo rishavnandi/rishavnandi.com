@@ -10,7 +10,6 @@
 
   import Badge from '@/ui/badge/badge.svelte';
   import { absoluteUrl, SITE_NAME } from '@/lib/seo';
-  import { routeAnimation } from '@/ui/shared';
   import { buttonVariants } from '@/ui/button';
 
   let { data } = $props();
@@ -34,7 +33,7 @@
   <meta name="twitter:image:alt" content={data.meta.title} />
 </svelte:head>
 
-<main class={cn('flex flex-col space-y-5', routeAnimation)}>
+<main class="flex flex-col space-y-5">
   <div class="mt-7 flex flex-col space-y-2">
     <h2 class="text-3xl font-medium tracking-tighter md:text-4xl">
       {data.meta.title}

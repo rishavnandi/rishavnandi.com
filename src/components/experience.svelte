@@ -4,12 +4,7 @@
   import { ArrowUpRight } from 'lucide-svelte';
 </script>
 
-<section
-  class={cn(
-    'flex flex-col space-y-4',
-    'delay-200 duration-500 animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards'
-  )}
->
+<section class="flex flex-col space-y-4">
   <div class="flex flex-col space-y-4">
     <h2 class="text-xl font-medium">Experience</h2>
   </div>

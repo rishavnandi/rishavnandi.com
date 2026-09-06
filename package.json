@@ -6,6 +6,9 @@
   "license": "WTFPL",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "bun run generate-sitemap && vite dev",
     "build": "bun run generate-sitemap && vite build",
@@ -19,7 +22,6 @@
   "dependencies": {
     "@jsdevtools/rehype-toc": "3.0.2",
     "@vercel/speed-insights": "2.0.0",
-    "bits-ui": "2.18.1",
     "clsx": "2.1.1",
     "lucide-svelte": "1.0.1",
     "mode-watcher": "^1.1.0",

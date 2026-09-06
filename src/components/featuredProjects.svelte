@@ -3,15 +3,9 @@
   import { ArrowRight } from 'lucide-svelte';
 
   import ProjectCard from './featuredProjectCard.svelte';
-  import { cn } from '@/utils';
 </script>
 
-<section
-  class={cn(
-    'flex flex-col space-y-4',
-    'delay-100 duration-500 animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards'
-  )}
->
+<section class="flex flex-col space-y-4">
   <div class="flex w-full items-center justify-between">
     <h2 class="text-xl font-medium">Projects</h2>
     <a

@@ -20,7 +20,7 @@
 
   // Lazy load speed insights after page is interactive
   onMount(() => {
-    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+    if (['www.rishavnandi.com', 'rishavnandi.com'].includes(window.location.hostname)) {
       // Use requestIdleCallback with fallback to setTimeout
       const scheduleTask = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1));
       scheduleTask(() => {
@@ -34,7 +34,7 @@
 
 <ModeWatcher />
 
-<main class="relative flex min-h-screen flex-col py-4 md:py-6">
+<div class="relative flex min-h-screen flex-col py-4 md:py-6">
   <Header />
   <div class="container max-w-4xl flex-1">
     {@render children?.()}
@@ -49,4 +49,4 @@
       <p>{currentYear}</p>
     </div>
   </footer>
-</main>
+</div>

@@ -5,7 +5,6 @@
   import Input from '@/ui/input/input.svelte';
   import { ArrowUpRight, GitForkIcon, SearchIcon, StarIcon } from 'lucide-svelte';
   import { absoluteUrl, SITE_NAME, SOCIAL_IMAGE } from '@/lib/seo';
-  import { routeAnimation } from '@/ui/shared';
 
   interface Props {
     data: PageData;
@@ -15,24 +14,14 @@
 
   let repos = $derived(data.repos);
   let searchTerm = $state('');
-
-  let filteredRepos = $derived(
-    repos
-      .filter((repo) => {
-        if (!searchTerm) return true;
-
-        const searchableText = [repo.name, repo.description, ...repo.topics]
-          .join(' ')
-          .toLowerCase();
-        return searchableText.includes(searchTerm.toLowerCase());
-      })
-      .slice()
-      .sort((a, b) => b.stargazers_count - a.stargazers_count)
+  let normalizedSearch = $derived(searchTerm.trim().toLowerCase());
+  let searchIndex = $derived(
+    repos.map((repo) => [repo.name, repo.description, ...repo.topics].join(' ').toLowerCase())
   );
 
-  const handleSearch = (e: Event) => {
-    searchTerm = (e.target as HTMLInputElement).value.trim();
-  };
+  let filteredRepos = $derived(
+    repos.filter((_, index) => searchIndex[index].includes(normalizedSearch))
+  );
 </script>
 
 <svelte:head>
@@ -61,7 +50,7 @@
   <meta name="twitter:image:alt" content="Rishav Nandi projects" />
 </svelte:head>
 
-<main class={routeAnimation}>
+<main>
   <div class="relative mb-5">
     <SearchIcon
       class="absolute left-3 top-1/2 -translate-y-1/2 transform text-neutral-500 dark:text-neutral-400"
@@ -71,10 +60,10 @@
     <Input
       type="search"
       autocomplete="off"
-      autofocus
+      aria-label="Search repositories"
       class="h-10 pl-10 shadow-sm"
       placeholder="Search Repositories"
-      oninput={handleSearch}
+      bind:value={searchTerm}
     />
   </div>
   <div
@@ -102,7 +91,7 @@
     </a>
   </div>
   <div class="flex flex-col space-y-3">
-    {#each filteredRepos as item}
+    {#each filteredRepos as item (item.html_url)}
       <div
         class="flex flex-col space-y-2 rounded-md border border-neutral-300 p-3 dark:border-neutral-800"
       >
@@ -133,13 +122,17 @@
         </div>
         <p class="text-sm text-neutral-500 dark:text-neutral-400">{item.description}</p>
         <div class="flex items-center space-x-2 overflow-y-auto">
-          {#each item.topics as tag}
+          {#each item.topics.slice(0, 5) as tag}
             <Badge>
               {tag}
             </Badge>
           {/each}
         </div>
       </div>
+    {:else}
+      <p role="status" class="text-sm text-neutral-500 dark:text-neutral-400">
+        No repositories match your search.
+      </p>
     {/each}
   </div>
 </main>

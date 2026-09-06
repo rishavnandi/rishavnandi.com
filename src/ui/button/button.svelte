@@ -1,7 +1,6 @@
 <!-- eslint-disable svelte/valid-compile: rest props are intentionally forwarded to the native button. -->
 <script lang="ts">
   /* eslint-disable svelte/valid-compile */
-  import { Button as ButtonPrimitive } from 'bits-ui';
   import { type Props, buttonVariants } from './index.js';
   import { cn } from '@/utils';
 
@@ -25,10 +24,10 @@
   }: Props_1 = $props();
 </script>
 
-<ButtonPrimitive.Root
+<button
   type="button"
   class={cn(buttonVariants({ variant, size }), className)}
   {...rest}
 >
   {@render children?.()}
-</ButtonPrimitive.Root>
+</button>

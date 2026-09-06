@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Post } from '@/types/post.type';
   import Badge from '@/ui/badge/badge.svelte';
-  import { cn, formatDate } from '@/utils';
+  import { formatDate } from '@/utils';
 
   import { CalendarIcon, TagIcon, ChevronRightIcon, ArrowRight } from 'lucide-svelte';
 
@@ -17,12 +17,7 @@
   const limitedPosts = $derived(limit ? postData.slice(0, limit) : postData);
 </script>
 
-<section
-  class={cn(
-    'flex flex-col space-y-4',
-    'delay-300 duration-500 animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards'
-  )}
->
+<section class="flex flex-col space-y-4">
   <div class="flex w-full items-center justify-between">
     <h2 class="text-xl font-medium">Posts</h2>
 
@@ -66,7 +61,7 @@
           </Badge>
           <Badge>
             <CalendarIcon size={12} />
-            <time datetime={formatDate(post.date)}>
+            <time datetime={post.date}>
               {formatDate(post.date)}
             </time>
           </Badge>

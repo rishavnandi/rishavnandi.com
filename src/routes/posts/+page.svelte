@@ -5,7 +5,6 @@
   import Input from '@/ui/input/input.svelte';
   import { SearchIcon, CalendarIcon, TagIcon, ChevronRightIcon } from 'lucide-svelte';
   import { absoluteUrl, SITE_NAME, SOCIAL_IMAGE } from '@/lib/seo';
-  import { routeAnimation } from '@/ui/shared';
   import { formatDate } from '@/utils';
 
   interface Props {
@@ -16,11 +15,11 @@
 
   let posts = $derived(data.posts);
   let searchTerm = $state('');
+  let term = $derived(searchTerm.trim().toLowerCase());
 
   let filteredPosts = $derived(
-    searchTerm
+    term
       ? posts.filter((post) => {
-          const term = searchTerm.toLowerCase();
           return (
             post.title.toLowerCase().includes(term) ||
             post.description.toLowerCase().includes(term) ||
@@ -28,12 +27,8 @@
             (post.tags && post.tags.some((tag: string) => tag.toLowerCase().includes(term)))
           );
         })
-      : posts.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      : posts
   );
-
-  const handleSearch = (e: Event) => {
-    searchTerm = (e.target as HTMLInputElement).value.trim();
-  };
 </script>
 
 <svelte:head>
@@ -62,7 +57,7 @@
   <meta name="twitter:image:alt" content="Rishav Nandi technical writing" />
 </svelte:head>
 
-<main class={routeAnimation}>
+<main>
   <div class="relative mb-5">
     <SearchIcon
       class="absolute left-3 top-1/2 -translate-y-1/2 transform text-neutral-500 dark:text-neutral-400"
@@ -72,10 +67,10 @@
     <Input
       type="search"
       autocomplete="off"
-      autofocus
+      aria-label="Search posts"
       class="h-10 pl-10 shadow-sm"
       placeholder="Search Posts"
-      oninput={handleSearch}
+      bind:value={searchTerm}
     />
   </div>
   <div
@@ -89,7 +84,7 @@
     </div>
   </div>
   <div class="flex flex-col space-y-3">
-    {#each filteredPosts as post}
+    {#each filteredPosts as post (post.slug)}
       <div
         class="flex flex-col space-y-2 rounded-md border border-neutral-300 p-3 dark:border-neutral-800"
       >
@@ -128,6 +123,10 @@
           </a>
         </div>
       </div>
+    {:else}
+      <p role="status" class="text-sm text-neutral-500 dark:text-neutral-400">
+        No posts match your search.
+      </p>
     {/each}
   </div>
 </main>

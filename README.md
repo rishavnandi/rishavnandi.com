@@ -44,7 +44,6 @@
 - [**mdsvex**](https://mdsvex.com/) - Markdown for Svelte apps.
 - [**Shiki**](https://github.com/shikijs/shiki) - A beautiful Syntax Highlighter.
 - [**Tailwindcss**](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
-- [**bits-ui**](https://www.bits-ui.com) - A collection of headless components for Svelte.
 - [**clsx**](https://github.com/lukeed/clsx) + [**tailwind-variants**](https://www.tailwind-variants.org/) - The power of Tailwind combined with a first-class variant API.
 - [**Prettier**](https://prettier.io/) + [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - An opinionated code formatter.
 - [**Lucide Icons**](https://lucide.dev/) + [**svgl**](https://svgl.app/) - Beautifully SVGs icons & logos.
@@ -56,17 +55,13 @@
 2. Install dependencies:
 
 ```bash
-# Install pnpm globally if you don't have it:
-npm install -g pnpm
-
-# and install dependencies:
-pnpm install
+bun install
 ```
 
 3. Run the development server:
 
 ```bash
-pnpm dev
+bun dev
 ```
 
 Open up [http://localhost:5173](http://localhost:5173) and make your changes ✨.
@@ -74,3 +69,8 @@ Open up [http://localhost:5173](http://localhost:5173) and make your changes ✨
 ## 📄 License
 
 - [**WTFPL License**](https://github.com/rishavnandi/rishavnandi.com?tab=WTFPL-1-ov-file#readme).
+
+## Checks and project freshness
+
+Run `bun test`, `bun run check`, `bun run lint`, and `bun run build` before deploying.
+The projects page fetches all public GitHub repositories at request time, with a five-minute CDN cache and one minute of background revalidation. New repositories appear on a subsequent visit or refresh without rebuilding the website. GitHub rate limits or outages return a retryable error.

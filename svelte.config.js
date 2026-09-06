@@ -12,7 +12,7 @@ const config = {
   kit: {
     adapter: adapter({
       // Use Node.js runtime for compatibility with @resvg/resvg-js
-      runtime: 'nodejs20.x',
+      runtime: 'nodejs24.x',
       // Split into regions for lower latency
       regions: ['iad1'], // US East - adjust based on your audience
       // Enable split to optimize function cold starts
@@ -23,7 +23,6 @@ const config = {
     },
     prerender: {
       handleMissingId: 'warn',
-      handleHttpError: 'warn',
       // Crawl all links for prerendering
       crawl: true
     },

@@ -54,7 +54,7 @@
   onmouseleave={handleMouseLeave}
   class="relative flex flex-col rounded-md border-[1px] border-neutral-300 px-3 py-4 shadow-sm dark:border-neutral-800"
 >
-  <input
+  <div
     aria-hidden="true"
     class="pointer-events-none absolute left-0 top-0 z-10 h-full w-full cursor-default rounded-[0.310rem] border transition-opacity duration-500 placeholder:select-none
     {mode.current === 'dark' ? 'border-white/50' : 'border-black/50'}
@@ -64,7 +64,7 @@
       -webkit-mask-image: radial-gradient(30% 30px at {position.x}px {position.y}px, black 45%, transparent);
       background-color: transparent;
     "
-  />
+  ></div>
   <div
     class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition duration-300"
     style="
@@ -119,12 +119,11 @@
     <p class="truncate text-sm dark:text-neutral-400">{description}</p>
     <div class="flex flex-wrap items-center gap-1">
       {#each tags as tag}
-        {#each technologies.filter((s) => s.stack === tag) as { icon: Icon }}
-          <Badge>
-            <Icon width={14} height={14} class="flex-shrink-0" />
-            <span>{tag}</span>
-          </Badge>
-        {/each}
+        {@const Icon = technologies[tag]}
+        <Badge>
+          {#if Icon}<Icon width={14} height={14} class="flex-shrink-0" />{/if}
+          <span>{tag}</span>
+        </Badge>
       {/each}
     </div>
   </div>

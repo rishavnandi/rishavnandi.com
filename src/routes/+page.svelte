@@ -33,9 +33,9 @@
   <meta name="twitter:image:alt" content="Rishav Nandi portfolio" />
 </svelte:head>
 
-<div class="grid items-center gap-14 py-4 md:py-4">
+<main class="grid items-center gap-14 py-4 md:py-4">
   <About />
   <Projects />
   <Experience />
   <Posts postData={data.posts} limit={3} showViewAll={true} />
-</div>
+</main>
