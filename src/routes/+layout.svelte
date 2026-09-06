@@ -34,6 +34,7 @@
 </script>
 
 <svelte:head>
+  <link rel="describedby" href="/llms.txt" />
   <!-- eslint-disable-next-line svelte/no-at-html-tags -- Only embeds the local, build-time theme script. -->
   {@html themeHtml}
 </svelte:head>

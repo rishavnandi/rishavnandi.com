@@ -1,0 +1,21 @@
+# Rishav Nandi
+
+> Personal website of Rishav Nandi, an AI Platform Engineer and DevOps practitioner from India focused on AI infrastructure, automation, open-source software, and self-hosted systems.
+
+Use the homepage for Rishav's profile and experience, the projects page for his public work, and the posts below for technical tutorials.
+
+## Main pages
+
+- [Homepage](https://www.rishavnandi.com/): Profile, experience, featured projects, and latest writing
+- [Projects](https://www.rishavnandi.com/projects): Public open-source projects and repositories
+- [Posts](https://www.rishavnandi.com/posts): Technical writing and tutorials
+
+## Posts
+
+- [Automate your homelab setup with Ansible](https://www.rishavnandi.com/post/homelab): Tutorial for automating a Docker homelab with Ansible
+- [Setup Minikube on WSL2](https://www.rishavnandi.com/post/minikube): Tutorial for installing and configuring Minikube on WSL2
+
+## Optional
+
+- [GitHub profile](https://github.com/rishavnandi): Source code and open-source projects
+- [LinkedIn profile](https://www.linkedin.com/in/rishavnandi/): Professional profile
